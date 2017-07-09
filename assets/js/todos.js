@@ -11,14 +11,18 @@ $('document').ready(function () {
         })
         event.stopPropagation(); //inorder to prevent other events being triggered.
     });
-    
-    $("input[type='text']").keypress(function(event){
-        if(event.which === 13) {
+
+    $("input[type='text']").keypress(function (event) {
+        if (event.which === 13) {
             //grabbing new todo text from input
             var todoText = $(this).val();
             $(this).val(""); //set the box to empty
             //create a new li and add to ul
-            $("ul").append("<li><span>X</span> " + todoText + "</li>");
+            $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
         }
     });
+    $(".fa-plus").click(function(){
+        $("input[type='text']").fadeToggle();
+    });
 });
+
